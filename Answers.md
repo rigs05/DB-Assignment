@@ -7,3 +7,4 @@ The relationship follows ONE-TO-MANY approach wherein ONE 'product-category' can
 
 Answer 2:
 As it is ONE-TO-MANY relation, we CANNOT assign 'category_id' as a PRIMARY KEY. So, In order to ensure that each 'product' is assigned a valid 'product-category', we can SET it's values as NOT NULL.
+In addition, we can use a Validator function which will validate for appropriate entry in productCategorySchema.

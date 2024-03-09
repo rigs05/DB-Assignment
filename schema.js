@@ -13,6 +13,17 @@ const productSchema = new Schema(
     category_id: {
       type: Number,
       ref: "ProductCategory",
+      required: true, // Set field as NOT NULL
+      // Using Mongoose Validator function to ensure correctness
+      validate: {
+        validator: async (val) => {
+          const category = await this.model("ProductCategory").findOne({
+            id: val,
+          });
+          return !!category;
+        },
+        message: "Invalid category ID",
+      },
     },
     inventory_id: {
       type: Number,
